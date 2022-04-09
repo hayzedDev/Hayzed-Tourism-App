@@ -111,7 +111,7 @@ if (resetPassword)
     const passResetConfirmField = document.querySelector(
       '.password--reset--confirm'
     );
-    const token = window.location.pathname.split('/').at(2);
+    const token = window.location.pathname.split('/')[2];
 
     await resetPasswordClient(
       passResetField.value,

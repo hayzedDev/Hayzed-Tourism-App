@@ -6,7 +6,7 @@ const { async } = require('regenerator-runtime');
 class Email {
   constructor(user, url) {
     this.to = user.email;
-    this.firstName = user.name.split(' ').at(0);
+    this.firstName = user.name.split(' ')[0];
     this.url = url;
     this.from = `Azeez Natours Page <${process.env.EMAIL_FROM}>`;
   }
