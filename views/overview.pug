@@ -26,7 +26,7 @@ block  content
             .card__data
               svg.card__icon
                 use(xlink:href="img/icons.svg#icon-calendar")
-              span= tour.startDates.at(0).toLocaleString('en-US', {month: 'long', year: 'numeric'})
+              span= tour.startDates[0].toLocaleString('en-US', {month: 'long', year: 'numeric'})
             .card__data
               svg.card__icon
                 use(xlink:href="img/icons.svg#icon-flag")
