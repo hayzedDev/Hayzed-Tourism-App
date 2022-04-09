@@ -12,7 +12,7 @@
     "parcel:build": "parcel build ./public/js/index.js --out-dir ./public/js --out-file bundle.js"
   },
   "engines": {
-    "node": "16.14.2"
+    "node": "16"
   },
   "author": "Azeez Absulsalam",
   "license": "ISC",
