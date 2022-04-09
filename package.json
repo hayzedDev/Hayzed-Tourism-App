@@ -23,6 +23,7 @@
     "axios": "^0.26.1",
     "bcryptjs": "^2.4.3",
     "cjs-loader": "^0.1.0",
+    "compression": "^1.7.4",
     "cookie-parser": "^1.4.6",
     "crypto": "^1.0.1",
     "dotenv": "^16.0.0",

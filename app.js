@@ -22,6 +22,8 @@ const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
 const { dirname } = require('path');
+w;
+const compression = require('compression');
 // const { path } = require('express/lib/application');
 
 // 1. Middlewares
@@ -108,6 +110,8 @@ app.use(
     whitelist: ['duration', 'ratingsAverage', 'ratingsQuantity'],
   })
 );
+
+app.use(compression());
 
 // h) Normal middleware
 // app.use((req, _, next) => {
