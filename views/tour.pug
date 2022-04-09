@@ -42,7 +42,7 @@ block content
             div
                 .overview-box__group
                     h2.heading-secondary.ma-bt-lg Quick facts
-                    -const date = `${tour.startDates.at(0).toLocaleString('en-US', {month: 'long', year: 'numeric'})}`
+                    -const date = `${tour.startDates[0].toLocaleString('en-US', {month: 'long', year: 'numeric'})}`
 
                     +overviewBox('Next date', date, 'calendar')
                     +overviewBox('Difficulty', tour.difficulty, 'trending-up')
@@ -88,8 +88,8 @@ block content
                 -const n = Math.floor(Math.random() * tour.images.length)
                 -let m = Math.floor(Math.random() * tour.images.length)
                 -while(n === m && tour.images.length > 1) m = Math.floor(Math.random() * tour.images.length)
-            img.cta__img.cta__img--1(src=`/img/tours/${tour.images.at(n)}`, alt='Tour Picture')
-            img.cta__img.cta__img--2(src=`/img/tours/${tour.images.at(m)}`, alt='Tour Picture')
+            img.cta__img.cta__img--2(src=`/img/tours/${tour.images[m]}`, alt='Tour Picture')
+            img.cta__img.cta__img--1(src=`/img/tours/${tour.images[n]}`, alt='Tour Picture')
             .cta__content
                 h2.heading-secondary What are you waiting for?
                 p.cta__text #{tour.duration} days. 1 adventure. Infinite memories. Make it yours today!
