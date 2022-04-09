@@ -22,7 +22,7 @@ const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
 const { dirname } = require('path');
-w;
+
 const compression = require('compression');
 // const { path } = require('express/lib/application');
 

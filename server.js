@@ -9,13 +9,17 @@ process.on('uncaughtException', (err) => {
 });
 
 const mongoose = require('mongoose');
-dotenv.config({ path: `./config.env` });
+// dotenv.config({ path: `./config.env` });
 const app = require(`${__dirname}/app`);
 
-const DB = process.env.DATABASE.replace(
-  '<PASSWORD>',
-  process.env.DATABASE_PASSWORD
-);
+const DB = process.env.DATABASE;
+// const DB =
+// 'mongodb+srv://hayzedDev:jjqlNzUGk7oRbO3u@cluster0.2iedr.mongodb.net/Natours-App?retryWrites=true&w=majority';
+
+// .replace(
+//   '<PASSWORD>',
+//   process.env.DATABASE_PASSWORD
+// );
 
 mongoose
   .connect(DB, {
