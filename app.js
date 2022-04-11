@@ -104,7 +104,7 @@ app.use('/api', apiLimiter);
 // webhook checkout from stripe
 // We do this here because we need to read the body of the incoming request as a stream and not as a json
 app.post(
-  '/webhookCheckout',
+  '/webhook-checkout',
   express.raw({ type: 'application/json' }),
   bookingController.webhookCheckout
 );
