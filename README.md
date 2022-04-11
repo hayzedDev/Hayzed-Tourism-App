@@ -1,1 +1,3 @@
-Link to the beautiful project: https://hayzed-tourism.herokuapp.com/
+A very beautiiful dynamic webapp which includes stripe payment integration, email notifications, etc...
+
+Link to the project: https://hayzed-tourism.herokuapp.com/

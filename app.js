@@ -24,9 +24,18 @@ const cookieParser = require('cookie-parser');
 const { dirname } = require('path');
 
 const compression = require('compression');
+const cors = require('cors');
 // const { path } = require('express/lib/application');
 
 // 1. Middlewares
+
+// IMplementing cors
+
+app.enable('trust proxy');
+app.use(cors());
+// Access-Control-Allow-Origin *
+
+app.options('*', cors());
 // serving static files
 app.use(express.static(`${__dirname}/public`));
 
@@ -35,7 +44,7 @@ app.set('views', path.join(__dirname, 'views'));
 // a) Set security http headers
 
 //Use helmet to protect HTTP Header
-// app.use(helmet()); // This is what we have for now
+app.use(helmet()); // This is what we have for now
 
 //Add the following
 // Further HELMET configuration for Security Policy (CSP)
@@ -57,21 +66,21 @@ const connectSrcUrls = [
   'https://api.stripe.com',
 ];
 const fontSrcUrls = ['fonts.googleapis.com', 'fonts.gstatic.com'];
-app.use(
-  helmet.contentSecurityPolicy({
-    directives: {
-      defaultSrc: [],
-      connectSrc: ["'self'", ...connectSrcUrls],
-      scriptSrc: ["'self'", ...scriptSrcUrls],
-      styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
-      workerSrc: ["'self'", 'blob:'],
-      objectSrc: [],
-      imgSrc: ["'self'", 'blob:', 'data:'],
-      fontSrc: ["'self'", ...fontSrcUrls],
-      frameSrc: ['https://js.stripe.com', 'https://hooks.stripe.com'],
-    },
-  })
-);
+// app.use(
+//   helmet.contentSecurityPolicy({
+//     directives: {
+//       defaultSrc: [],
+//       connectSrc: ["'self'", ...connectSrcUrls],
+//       scriptSrc: ["'self'", ...scriptSrcUrls],
+//       styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
+//       workerSrc: ["'self'", 'blob:'],
+//       objectSrc: [],
+//       imgSrc: ["'self'", 'blob:', 'data:'],
+//       fontSrc: ["'self'", ...fontSrcUrls],
+//       frameSrc: ['https://js.stripe.com', 'https://hooks.stripe.com'],
+//     },
+//   })
+// );
 
 // b) Development logging
 
