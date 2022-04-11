@@ -5,6 +5,7 @@ const rateLimit = require('express-rate-limit');
 const pug = require('pug');
 const path = require('path');
 const bookingRoutes = require('./routes/bookingRoutes');
+const bookingController = require('./controllers/bookingController');
 
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
@@ -100,8 +101,15 @@ const apiLimiter = rateLimit({
 });
 app.use('/api', apiLimiter);
 
-// d) Body parser: Reading data from body into req.body
+// webhook checkout from stripe
+// We do this here because we need to read the body of the incoming request as a stream and not as a json
+app.post(
+  '/webhookCheckout',
+  express.raw({ type: 'application/json' }),
+  bookingController.webhookCheckout
+);
 
+// d) Body parser: Reading data from body into req.body
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 app.use(express.json({ limit: '10kb' })); // Using Middleware here so that req.data can be read
@@ -146,3 +154,13 @@ app.use(globalErrorHandler);
 //   4. Start Server
 
 module.exports = app;
+
+// switch (event.type) {
+//   case 'checkout.session.completed':
+//     const session = event.data.object;
+//     // Then define and call a function to handle the event checkout.session.completed
+//     break;
+//   // ... handle other event types
+//   default:
+//     console.log(`Unhandled event type ${event.type}`);
+// }
