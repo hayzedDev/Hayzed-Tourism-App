@@ -150,8 +150,17 @@ if (signupBtn)
 const alerts = document.querySelector('body').dataset.alert;
 
 if (alerts) {
-  showAlert('success', alerts, 12);
-  const { host, pathname } = window.location;
+  showAlert('success', alerts, 10);
 
-  window.location.href = `${host}${pathname}`;
+  const { host, pathname } = window.location;
+  const pageAccessedByReload =
+    (window.performance.navigation &&
+      window.performance.navigation.type === 1) ||
+    window.performance
+      .getEntriesByType('navigation')
+      .map((nav) => nav.type)
+      .includes('reload');
+  if (pageAccessedByReload) window.location.replace(`${host}${pathname}`);
+
+  // window.location.href = `${host}${pathname}`;
 }
