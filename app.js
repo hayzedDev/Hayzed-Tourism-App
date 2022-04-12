@@ -140,6 +140,7 @@ app.use(compression());
 //   next();
 // });
 // 3. ROute
+
 app.use('/', viewRouter);
 app.use(`/api/v1/tours`, tourRouter);
 app.use(`/api/v1/users`, userRouter);

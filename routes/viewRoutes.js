@@ -7,6 +7,8 @@ const router = express.Router();
 
 // router.use(authController.isLoggdIn);: check if a user is liogged in so as to render the header page (HTML)
 
+router.use(viewController.renderAlertCheckout)
+
 router.get(
   '/',
   // bookingController.createBookingCheckout,

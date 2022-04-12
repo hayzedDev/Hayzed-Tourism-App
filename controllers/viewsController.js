@@ -65,7 +65,6 @@ exports.getMyTours = catchAsync(async (req, res, next) => {
   // 1) Find all bookings
 
   const bookings = await Booking.find({ user: req.user.id }).populate('tour');
-  console.log(bookings);
   // .populate('guides');
   const tours = bookings.map((el) => el.tour);
 
@@ -116,4 +115,13 @@ exports.getSignupForm = (req, res, next) => {
   res.status(200).render('signup', {
     title: 'Sign Up',
   });
+};
+
+exports.renderAlertCheckout = (req, res, next) => {
+  const { alert } = req.query;
+
+  if (alert === 'booking')
+    res.locals.alert = `Your booking was successful! Please check your email for a confirmation. If your booking doesn't show up here immediately, please come back later.`;
+
+  next();
 };

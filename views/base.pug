@@ -9,7 +9,7 @@ html
             link(rel='shortcut icon' type='image/png' href='/img/favicon.png')
             title Natours | #{title}
             script(defer, src='/js/bundle.js')
-    body
+    body(data-alert=`${alert? alert: ''}`)
         // Header
         include _header
 

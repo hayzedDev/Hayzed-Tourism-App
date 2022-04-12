@@ -11,6 +11,7 @@ import {
 } from './forgotPasswordClient';
 import { signup } from './signup';
 import { async } from 'regenerator-runtime/runtime';
+import { showAlert } from './alert';
 
 // DOM elements
 const userData = document.querySelector('.form-user-data');
@@ -145,3 +146,7 @@ if (signupBtn)
     signupBtn.textContent = 'CREATE ACCOUNT';
     password.value = passwordConfirm.value = '';
   });
+
+const alerts = document.querySelector('body').dataset.alert;
+
+if (alerts) showAlert('success', alerts, 12);
