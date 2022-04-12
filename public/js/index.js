@@ -149,4 +149,9 @@ if (signupBtn)
 
 const alerts = document.querySelector('body').dataset.alert;
 
-if (alerts) showAlert('success', alerts, 12);
+if (alerts) {
+  showAlert('success', alerts, 12);
+  const { hostname, pathname } = window.location;
+
+  window.location.href = `${hostname}${pathname}`;
+}
