@@ -151,7 +151,7 @@ const alerts = document.querySelector('body').dataset.alert;
 
 if (alerts) {
   showAlert('success', alerts, 12);
-  const { hostname, pathname } = window.location;
+  const { host, pathname } = window.location;
 
-  window.location.href = `${hostname}${pathname}`;
+  window.location.href = `${host}${pathname}`;
 }
