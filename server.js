@@ -13,13 +13,6 @@ const mongoose = require('mongoose');
 const app = require(`${__dirname}/app`);
 
 const DB = process.env.DATABASE;
-// const DB =
-// 'mongodb+srv://hayzedDev:jjqlNzUGk7oRbO3u@cluster0.2iedr.mongodb.net/Natours-App?retryWrites=true&w=majority';
-
-// .replace(
-//   '<PASSWORD>',
-//   process.env.DATABASE_PASSWORD
-// );
 
 mongoose
   .connect(DB, {
@@ -33,20 +26,6 @@ mongoose
   .then((conn) => {
     console.log('DB connection successful!!');
   });
-
-// const { MongoClient, ServerApiVersion } = require('mongodb');
-// const uri =
-//   'mongodb+srv://hayzedDev:<password>@cluster0.2iedr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
-// const client = new MongoClient(uri, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-//   serverApi: ServerApiVersion.v1,
-// });
-// client.connect((err) => {
-//   const collection = client.db('test').collection('devices');
-//   // perform actions on the collection object
-//   client.close();
-// });
 
 const port = process.env.PORT || 2000;
 const server = app.listen(port, () => {
