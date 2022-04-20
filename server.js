@@ -1,6 +1,6 @@
 const dotenv = require('dotenv');
 
-// Handling uncaught exception error
+// Handling uncaught exception error (synchronous errors)
 process.on('uncaughtException', (err) => {
   console.log('uncaughtException🎆🎆 Shutting down...');
   console.log(err.name, err.message, err);

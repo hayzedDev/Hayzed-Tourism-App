@@ -112,7 +112,7 @@ app.post(
 // d) Body parser: Reading data from body into req.body
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
-app.use(express.json({ limit: '10kb' })); // Using Middleware here so that req.data can be read
+app.use(express.json({ limit: '10kb' })); // Using this Middleware here so that req.body can be read
 
 // e) DAta Sanitization against NO-SQL query injection
 app.use(ExpressMongoSanitize());

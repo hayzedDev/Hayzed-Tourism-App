@@ -151,16 +151,21 @@ const alerts = document.querySelector('body').dataset.alert;
 
 if (alerts) {
   showAlert('success', alerts, 10);
+  function getPathFromUrl(url) {
+    return url.split(/[?#]/)[0];
+  }
+  const newUrl = '/my-tours';
 
-  const { host, pathname } = window.location;
-  const pageAccessedByReload =
-    (window.performance.navigation &&
-      window.performance.navigation.type === 1) ||
-    window.performance
-      .getEntriesByType('navigation')
-      .map((nav) => nav.type)
-      .includes('reload');
-  if (pageAccessedByReload) window.location.replace(`${host}${pathname}`);
+  // const { host, pathname } = window.location;
+  // const pageAccessedByReload =
+  //   (window.performance.navigation &&
+  //     window.performance.navigation.type === 1) ||
+  //   window.performance
+  //     .getEntriesByType('navigation')
+  //     .map((nav) => nav.type)
+  //     .includes('reload');
+  // if (pageAccessedByReload) window.location.replace(`${host}${pathname}`);
 
-  // window.location.href = `${host}${pathname}`;
+  // window.location.href = `/my-tours`;
+  history.pushState({}, null, newUrl);
 }
