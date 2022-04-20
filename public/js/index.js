@@ -151,10 +151,12 @@ const alerts = document.querySelector('body').dataset.alert;
 
 if (alerts) {
   showAlert('success', alerts, 10);
-  function getPathFromUrl(url) {
-    return url.split(/[?#]/)[0];
-  }
-  const newUrl = '/my-tours';
+  window.history.pushState({}, null, '/my-tours');
+  // function getPathFromUrl(url) {
+
+  //   return url.split(/[?#]/)[0];
+  // }
+  // const newUrl = '/my-tours';
 
   // const { host, pathname } = window.location;
   // const pageAccessedByReload =
@@ -167,5 +169,4 @@ if (alerts) {
   // if (pageAccessedByReload) window.location.replace(`${host}${pathname}`);
 
   // window.location.href = `/my-tours`;
-  history.pushState({}, null, newUrl);
 }
