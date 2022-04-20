@@ -150,8 +150,8 @@ if (signupBtn)
 const alerts = document.querySelector('body').dataset.alert;
 
 if (alerts) {
+  history.pushState({}, null, '/my-tours');
   showAlert('success', alerts, 10);
-  window.history.pushState({}, null, '/my-tours');
   // function getPathFromUrl(url) {
 
   //   return url.split(/[?#]/)[0];
