@@ -151,5 +151,6 @@ const alerts = document.querySelector('body').dataset.alert;
 
 if (alerts) {
   showAlert('success', alerts, 10);
+
   history.pushState({}, null, '/my-tours');
 }
