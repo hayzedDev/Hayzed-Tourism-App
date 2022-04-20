@@ -152,6 +152,7 @@ const alerts = document.querySelector('body').dataset.alert;
 if (alerts) {
   history.pushState({}, null, '/my-tours');
   showAlert('success', alerts, 10);
+  console.log(`You're in the frontend`);
   // function getPathFromUrl(url) {
 
   //   return url.split(/[?#]/)[0];
