@@ -9,7 +9,8 @@ process.on('uncaughtException', (err) => {
 });
 
 const mongoose = require('mongoose');
-// dotenv.config({ path: `./config.env` });
+if (process.env.NODE_ENV === 'development')
+  dotenv.config({ path: `./config.env` });
 const app = require(`${__dirname}/app`);
 
 const DB = process.env.DATABASE;
