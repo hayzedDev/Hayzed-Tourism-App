@@ -16,12 +16,25 @@ class Email {
       // use sendgrid to send the email
 
       return nodemailer.createTransport({
-        // service: 'SendinBlue',
-        service: 'Gmail',
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true,
         auth: {
+          type: 'OAuth2',
           user: process.env.SENDINBLUE_EMAIL,
-          pass: process.env.SENDINBLUE_PASS,
+          // pass: process.env.GMAIL_PASS,
+          clientId: process.env.OAUTH_CLIENT_ID,
+          clientSecret: process.env.OAUTH_CLIENT_SECRET,
+          refreshToken: process.env.OAUTH_REFRESH_TOKEN,
+          accessToken: process.env.OAUTH_ACCESS_TOKEN,
         },
+
+        // service: 'SendinBlue',
+        // service: 'Gmail',
+        // auth: {
+        //   user: process.env.SENDINBLUE_EMAIL,
+        //   pass: process.env.SENDINBLUE_PASS,
+        // },
       });
     }
 
